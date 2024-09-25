@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+.rain-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Gotas de lluvia */
+.drop {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background-color: rgba(173, 216, 230, 0.8);
+    bottom: 100%;
+    animation: fall linear infinite;
+}
+
+/* Trueno (relámpago) */
+@keyframes thunder {
+    0%, 100% {
+        background-color: #0a0a0a; /* Fondo oscuro (noche) */
+        z-index: 20;
+    }
+    50% {
+        background-color: #f5f5f5; /* Flash brillante para simular trueno */
+        z-index: 20;
+
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Estilo para las nubes */
+.cloud {
+    position: absolute;
+    top: 10%;
+    width: 200px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        left: -200px;
+    }
+    50% {
+        left: 80%;
+    }
+    100% {
+        left: -200px;
+    }
+}
+
+/* Pasto en la parte inferior */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: rgb(228,255,0);
+    background: linear-gradient(248deg, rgba(228,255,0,1) 0%, rgba(144,200,58,1) 43%, rgba(69,172,13,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ground::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -420%);
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff; /* Color de la flor */
+    border-radius: 50%;
+
+}
+
+/* Flor */
+.flower {
+    position: relative;
+    width: 5px;
+    height: 150px;
+    background-color: #44a131; /* Tallo */
+}
+
+.flower::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    width: 50px;
+    height: 50px;
+    background-color: #2234d3; /* Color de la flor */
+    border-start-start-radius: 75%;
+    border-start-end-radius: 15%;
+    border-end-start-radius: 15%;
+    border-end-end-radius: 75%;
+    border-color: #0a0a0a !important;
+}
+
+.flower::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    width: 50px;
+    height: 50px;
+    background-color: #2234d3; /* Color de la flor */
+    border-start-start-radius: 15%;
+    border-start-end-radius: 75%;
+    border-end-start-radius: 75%;
+    border-end-end-radius: 15%;
+    border-color: #0a0a0a !important;
+}
+
